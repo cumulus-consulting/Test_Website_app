@@ -1,0 +1,50 @@
+name: Frontend Docker Image CI pipeline
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+
+
+    env:
+      AWS_ACCOUNT_ID: "438465154544"
+      AWS_REGION: "us-east-1"
+      ECR_REPOSITORY_NAME: "frontend-ecr-repo"
+
+    permissions:
+      id-token: write
+      contents: read
+
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::438465154544:role/OIDCRole
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Log in to ECR
+        run: |
+          aws ecr get-login-password --region $AWS_REGION \
+            | docker login --username AWS \
+            --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            -f ./frontend/Dockerfile \
+            -t $ECR_REPOSITORY_NAME:latest \
+            ./frontend
+
+          # Re-tag for ECR
+          docker tag $ECR_REPOSITORY_NAME:latest \
+            $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:latest
+
+      - name: Push to ECR
+        run: |
+          docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:latest

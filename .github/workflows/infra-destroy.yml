@@ -1,0 +1,71 @@
+name: Terraform Destroy Pipeline
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write    
+  contents: read
+
+jobs:
+  destroy:
+    runs-on: ubuntu-latest
+
+    env:
+      AWS_REGION: "us-east-1"
+      AWS_ACCOUNT_ID: "438465154544"
+      IMAGE_ID: "ami-01a228f15911e06f6"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set dynamic environment variables
+        run: |
+          echo "S3_BACKEND_BUCKET=${AWS_ACCOUNT_ID}-${AWS_REGION}-backend-infra-tf-yt" >> $GITHUB_ENV
+          echo "DYNAMO_LOCK_TABLE=${AWS_ACCOUNT_ID}-${AWS_REGION}-backend-infra-tf-yt-lock" >> $GITHUB_ENV
+          echo "ROLE_TO_ASSUME=arn:aws:iam::${AWS_ACCOUNT_ID}:role/OIDCRole" >> $GITHUB_ENV
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{ env.ROLE_TO_ASSUME }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.5.5
+
+      - name: Terraform Init
+        run: |
+          cd infrastructure/terraform
+          terraform init \
+            -backend-config="bucket=${{ env.S3_BACKEND_BUCKET }}" \
+            -backend-config="dynamodb_table=${{ env.DYNAMO_LOCK_TABLE }}" \
+            -backend-config="region=${{ env.AWS_REGION }}" \
+            -backend-config="key=terraform.tfstate"
+
+      - name: Terraform Plan Destroy
+        env:
+          MONGO_USERNAME: ${{ secrets.MONGO_USERNAME }}
+          MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
+        run: |
+          cd infrastructure/terraform
+          terraform plan -destroy \
+            -var="region=${{ env.AWS_REGION }}" \
+            -var="image_id=${{ env.IMAGE_ID }}" \
+            -var="mongo_username=${{ env.MONGO_USERNAME }}" \
+            -var="mongo_password=${{ env.MONGO_PASSWORD }}"
+
+      - name: Terraform Destroy
+        env:
+          MONGO_USERNAME: ${{ secrets.MONGO_USERNAME }}
+          MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
+        run: |
+          cd infrastructure/terraform
+          terraform destroy -auto-approve \
+            -var="region=${{ env.AWS_REGION }}" \
+            -var="image_id=${{ env.IMAGE_ID }}" \
+            -var="mongo_username=${{ env.MONGO_USERNAME }}" \
+            -var="mongo_password=${{ env.MONGO_PASSWORD }}"

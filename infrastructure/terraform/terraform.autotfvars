@@ -1,0 +1,4 @@
+mongo_username = "admin"
+mongo_password = "SomeSecurePasswordHere"
+region = "us-east-1"
+image_id = "ami-01a228f15911e06f6"

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Simple Application</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid justify-content-center">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-evenly text-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="todo.html">To-Do-List</a>
+          </li>
+          <li class="nav-item">
+            <button id="dark-mode-toggle" class="btn btn-primary navbar-darkmode">
+              🌙
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="shadcn-main">
+    <div class="content-box mb-4">
+      <section class="intro-section">
+        <h1 class="shadcn-heading">My To-Do-List Application &#128203;</h1>
+        <p class="shadcn-text">
+          Welcome to my simple to-do-list web application, which is designed to
+          showcase my proficiency in building stable, secure, and reliable
+          applications in AWS (and will scale to millions of users, despite never
+          needing to!).
+        </p>
+      </section>
+
+      <section class="diagram-section mt-4">
+        <h2 class="shadcn-heading">Application Diagram</h2>
+        <p class="shadcn-text">
+          Below is the diagram of the application architecture.
+        </p>
+        <iframe frameborder="0" style="width:100%;height:913px;" src="https://viewer.diagrams.net/?lightbox=1&highlight=0000ff&nav=1&dark=0#R%3Cmxfile%3E%3Cdiagram%20name%3D%22Page-1%22%20id%3D%22aNb2FgmZO5IkZn5BL6Yg%22%3E7V1bc6M4Fv41rpp9sAtx59HXdGrTXdnO7PbOU0oGBbPB4AGROP3rVwLJBkmOjdvkMkM61YGDkGSd7zsXSeCBMV1vrzK4WX1NAxQPdC3YDozZQNcNx7bIHyp5qSTA0JgkzKKAyfaCu%2BgnYkKNSYsoQHmjIE7TGEebptBPkwT5uCGDWZY%2BN4s9pHGz1Q0MkSS482EsS39EAV5VUtvT9vIvKApXrGXPZRfWkJdlgnwFg%2FS5JjLmA2OapSmujtbbKYrp4PFhqe5bHLi661eGEnzKDd9uvzyOb67s3%2F%2Flfr%2BO%2FrCANlwOWS1PMC7Y5x3%2FuCOCaZwWAes3fuFjsUmjBJfjaU3IL2lvqg0scmVKz0a6JQjEc6cpAPIZraMpEM%2BdpgCI1QOhfSB2sCaQzhrVa0L7Wq2D5NeYpAWOowRNd8jTiDDMYBARlUzTOM2ILEkTMnqTFV7H5AyQw%2BdVhNHdBvp0VJ8JbYjsIU0wwz7Q%2BTkbeForQTeGpK2M1VFqAmXzJ1QppCoTx3CTR8vdXRnyiyyPntB3lFeVUykB4oYer7ch5ewIPufmKMzSYlN2%2F5q0pbx6Tw7vfQqMexhjWhHO0kfEP%2BhAN8i%2FBQXf5CGKY2EAnlCGI0KrcRyFtH6c0uYgO4vRQ1kjGZUoCW%2FKs5mhsZFQNRHAfIUC9pFkLnBgk1bRtiZi3LhC6Rrh7IUUYVeHps2IyiyVwU6f96wHBheu6pTnpgoyUxPuKt%2FTkRwwRrZgpy6xs8iHCOaY87bnZs%2FNipsZCiN6TSalpo3Nsd0pKYHpzCfjOimBkpSvuqCTmWo0eWopeLoT1nnqGm5HPHUknl5f%2FZAYmj8i7K%2BYopX4PGTrDuC2rlBS3J2ai8VCggAr3LCXXO83cIni2zSPcAme2TLFOF0fBYaPKMCbzDnGEphvqg%2F6EG1pPySagEPwL4slCN%2BHEKNn%2BHI6tPS20PI8r4Etx5OwZSqQZXblAEwJWP%2B5nfamvzf9ddP%2FtPF1leHf2YPuDP94PHEm7vFo7DLsBEaTna5s%2BT0NyPS0jK74CQyJoAPdLoNjOlINmtp%2FFim%2FMKz0PiYFvM22HDJ%2BmRyF7C9cU6Uky3xTnmsniHbx4ZL3g3yuqiu82tZeqRvqnJ%2BFPMEohssojvDL%2Fc%2BqLxL2LdOa2Gan2N81cU7QY7bF%2FtBsRj267crgdxXgN3S9K%2FDL6Ulb8APtl9C%2FQzvs0f6XRvvQ0E9D%2B84nXBztngT222IZRz7FV7Ek4SmFM%2Bxjsz42q9M3p9VR6u4L35Xs5RWLVHbGYwDEbJ3IF%2FrCnruX47Nuui5o8LlF5Naaz6ZuH8vZDc2U6Qw6o7Mr0fkbpBS%2BYjlmn7xfJnlP4Bl5u9cWX8AwG%2FgyFfiyFbGR3VVoJMNL4S2WvbfovUXvLY56CwO8u7vgi7iKXCeInmpZSylaZqKENKoo97a3TmOY59QEiXmUVONNCoNDxY52h6ALJj7KDt3QO9aLOFa42RB%2FAmkX72Oir%2FslH%2FfuiOmCJjFVa6SWgpdcdnlayvsXbrPoicQbfVrWO9oLOlrlIiqRz%2B2FvXAu52jlldQuHa2wkqqKmh1F2Ay8ztysPKWo4nMfOPd87vks81lv8lkZN7sqQncXNysXyM5Y2DpbNC5wmhNFEj3R6Z0SH6L1EDF9YpzH1P87vTob6gPl%2FDtpMAl2mlcxrEZACafzmQO0PYL5DlR9IEzEiyyUGYe2G5jwbqjp1xkshXzOlndVAL75rrGtAoCuYClvrHg9MVH6F6WPUfkZpa%2BR%2FU2jWOkBFC2IQpXMkYVALsadhixUyVQeUrwbKO4Gwt2H%2FdOhPE800U1K1K48lD8fMatTOrYM5WmR%2Bahya4STucrBQWK%2F7pkB008n6c7wHmfpe21u0uVJ0vk%2F6ebzbynd8a9rvy0yMrCIWC3SenJwRqI2u7CE%2FiMp%2F49z5h56ivcUfx%2BKo8e8E2Kzq5Y1spr%2BF0j%2B1%2FQUxPe6Ir68lt4Tvyd%2BT%2Fyuia9778x8Qw6zURAiPr5phldpmCYwnu%2BlQga1L3OTlokXVdr%2FEMYvTGs0YGqqlIxr9vJfev%2FIcxwu%2BKMUECRywWzLU6Xy7KV%2BdouyiAxBmV%2B1T5UqLLymWxZjYZiF6BQQ0FF7FQIZiiEmCV6tkFqf5a3jLKN7HnYFmEnc13xLBbWFANNoAgsIzx4K5W2%2BLffM8sA2BexVPd4jcffRfwGcxruCE4w0zW6C0zFAD84zwNkED39o71SwtS7vvF7ecJ3XyncEZnmG42uahOmMzpFdJzmma4V9XNTHRR8yLvJbzHS0no4EIn9tQ4qKVM8PctnloyL5ad63jYqsuts55nJODVdP9C7G%2B3mXX1OavCNoPv3eW9Teon5Mi9piXxBfhD99w57WXOBxFAuPjitbVKerB7INeYapeq%2FJHRkIRINH7StMYEh3qfWE%2FRSEnc0M05z%2BbQibV0C9XzOYdkdeS9gF9O7k5QtObxsOXTis4XPcR8MabqreOWm2HGEv2FskqTxRr5vpNfxJ2EAsNQn3tEnhP5ZbvlZpHJQ7OI6uBOyz3An0H4tN3i8JfGq7v3vE4W9i940OTb3OM80PY%2BrfZT1AHl5worHmBuvCxlqyxkMgvIzMNryRV%2F9p1lghi1Ui6OQSdtr%2BUGo66nxN81R9Wh9qTsGUJ22vIvylWBLZd7ShxizN5GdTG%2FZPaWtroyoZulgwlLsLZ1pS0fg9o2VMNJ%2BPwgiviuVBrbZ4O4DnCcEKsGQ7ZinsmNWV4pxPRhDrRIJ0Y%2B%2FaBqdDGwgKt%2FS6zo7fYIC3CGcVsw77p7TKcDaKAyVSSo4dIapIt3UUBBWQ6CZeuN%2Fq24xeZy2m0vmL7EQq7l6vy1oZ1F9hq6KoNrI9Nl97rivkRdKHhxx149bcnrUfmrWW%2Bwas5cs6rR9RuE4eMkiyksLHRYY%2BA735httL0Bt4bkNX%2Bodnu3U4uBr71ELnku54LBOty7eEHw%2BJymCKTjyEpZ3g2WqAHmBRzkIcyD7FDLJscMylGpeQ4xXG9M3nYzo%2B%2BiLHZLT9oaaNIqLCoPAfRz7piL6AORnGfKQRPS6qwAtWn3FICw51zXS39L9htPkzfdad7WiThK9ZpxbhmWM3NzyYQF5gdZyRKkDbSS8eolmfLIdhtvKEdVGtE2svWWfHdQWtOs0qqp52loTyATkYXf07Vyzn1HRxlLzq1Ehmc33u6UAOJD2tpXgC0dUW7KHH6nsBNHEqS8ykojR3Sp7noyI%2FsCbQmq2e8Ko1w9Vlsip2Q3BZC6KS0%2F3XHVSw2H9phDH%2FPw%3D%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E"></iframe>
+    </div>
+
+    <div class="content-box">
+      <section class="architecture-section">
+        <h2 class="shadcn-heading">Architecture Overview</h2>
+        <p class="shadcn-text">
+          The solution is built using a multi-layered architecture to ensure
+          scalability, security, and maintainability. Key components include:
+        </p>
+
+        <div class="card border-0 mb-4">
+          <div class="card-body text-start">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <strong>Web Application Tier:</strong> Containerized frontend
+                (HTML, CSS, Bootstrap, and JavaScript) and backend (Node.js) deployed
+                on a Kubernetes cluster for a responsive and interactive user interface.
+              </li>
+              <li class="list-group-item">
+                <strong>Database Layer:</strong> A MongoDB server hosted on a
+                dedicated EC2 instance with authentication, configured for secure
+                access by the Kubernetes cluster.
+              </li>
+              <li class="list-group-item">
+                <strong>MongoDB Backups:</strong> Periodic MongoDB backups taken
+                daily at 9am UTC using a bash script on the VM, then pushed to
+                Amazon S3 for easy retrieval. Lifecycle policies enabled on the
+                S3 bucket to archive and remove old backups.
+              </li>
+              <li class="list-group-item">
+                <strong>Infrastructure:</strong> All components are provisioned
+                and managed using Terraform, including the Kubernetes cluster,
+                load balancers, rest of the architecture setup.
+              </li>
+              <li class="list-group-item">
+                <strong>Additional Components:</strong> Integrated security
+                using AWS Secrets Manager, hosted within an Amazon VPC with CI/CD
+                pipelines deployed via GitHub Actions for continuous integration
+                and delivery.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card text-center border-0 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title mb-3">Special File</h5>
+            <p class="card-text">
+              We also have a dedicated file named <code>wizexercise.txt</code> in our container image.
+              You can <strong>view</strong> or <strong>download</strong> it below:
+            </p>
+            <a
+              href="wizexercise.txt"
+              target="_blank"
+              class="btn btn-primary mx-2 my-1"
+              rel="noopener noreferrer"
+            >
+              View wizexercise.txt
+            </a>
+            <a
+              href="wizexercise.txt"
+              download="wizexercise.txt"
+              class="btn btn-secondary mx-2 my-1"
+            >
+              Download wizexercise.txt
+            </a>
+          </div>
+        </div>
+      </section>  
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script src="index.js"></script>
+  <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"
+  ></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+  ></script>
+</body>
+</html>

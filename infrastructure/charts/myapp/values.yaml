@@ -1,0 +1,13 @@
+replicaCount: 1
+
+backend:
+  image: "438465154544.dkr.ecr.us-east-1.amazonaws.com/backend-ecr-repo:latest"
+  port: 3000
+  tag: "latest"
+
+frontend:
+  image: "438465154544.dkr.ecr.us-east-1.amazonaws.com/frontend-ecr-repo:latest"
+  port: 80
+  tag: "latest"
+
+mongoUri: "mongodb://admin:REPLACE_ME@10.0.3.50:27017/mydatabase?authSource=admin"
