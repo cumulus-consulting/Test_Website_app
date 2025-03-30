@@ -43,7 +43,7 @@ variable "oidc_url" {
 variable "trusted_repo" {
   description = "The repository that the IAM role is trusted to deploy to."
   type        = string
-  default     = "repo:jacklavelle286/*"
+  default     = "repo:cumulus-consulting/*"
 }
 
 
@@ -116,6 +116,19 @@ resource "aws_dynamodb_table" "lock" {
     Name = "Terraform Lock Table"
   }
 }
+
+
+resource "aws_ecr_repository" "frontend" {
+  name         = "frontend-ecr-repo"
+  force_delete = true
+}
+
+resource "aws_ecr_repository" "backend" {
+  name         = "backend-ecr-repo"
+  force_delete = true
+}
+
+
 
 
 # Outputs

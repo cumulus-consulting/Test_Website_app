@@ -1,16 +1,5 @@
 
 
-resource "aws_ecr_repository" "frontend" {
-  name         = "frontend-ecr-repo"
-  force_delete = true
-}
-
-resource "aws_ecr_repository" "backend" {
-  name         = "backend-ecr-repo"
-  force_delete = true
-}
-
-
 # EKS Cluster IAM Role
 
 data "aws_iam_policy_document" "eks_cluster_assume_role" {
